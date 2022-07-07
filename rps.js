@@ -45,3 +45,40 @@ function playRound(playerSelection,computerSelection) {
         }
     }
 }
+
+function game() {
+    let playerScore = 0
+    let computerScore = 0
+
+    for (let i = 0; i < 5; i++) {
+        const computerSelection = computerPlay();
+        let playerSelection;
+
+        do {
+            playerSelection = prompt("Type rock, paper or scissors","rock").toLowerCase()
+        } while (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissor')
+        
+        let result = (playRound(playerSelection,computerSelection))
+
+        switch (result) {
+            case 'player':
+                playerScore++
+                    break
+            case 'computer':
+                computerScore++
+                        break
+            default:
+                        break
+        }
+    }
+
+    if (playerScore > computerScore) {
+        console.log(`Player wins! Computer loses! ${playerScore} - ${computerScore}`)
+    } else if (computerScore > playerScore) {
+        console.log(`Player les! Computer wins! ${playerScore} - ${computerScore}`)
+    } else {
+        console.log(`It's a Tie! ${playerScore}-${computerScore}`)
+    }
+}
+
+game();
