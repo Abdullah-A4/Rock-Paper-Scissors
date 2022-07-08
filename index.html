@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
     <link href="./styles.css" rel="stylesheet">
+    <script type="text/javascript" src="./script.js" defer></script>
 </head>
 <body>
     <p>Lets play rock paper scissors!</p>
-    <p>Open the console.</p>
-    <script type="text/javascript" src="./rps.js"></script>
+    <div id="updateScore">
+        <button onclick="rock()">Rock</button>
+        <button onclick="paper()">Paper</button>
+        <button onclick="scissors()">Scissors</button>
+    </div>
+    <p></p>
+    <div id="result">Made by Abdullah Asif</div>
+    <p>Player Score: <span id="playerScore">0</span></p>
+    <p>Computer Score: <span id="computerScore">100 :)</span></p>
 </body>
 </html>
