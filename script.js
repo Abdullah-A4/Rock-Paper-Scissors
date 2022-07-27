@@ -14,33 +14,45 @@ function playRound(playerSelection,computerSelection) {
                 document.getElementById("result").innerHTML = "It's a tie!";
                 return 0
             case 'paper':
+                computerScore += 1;
                 document.getElementById("result").innerHTML = "You lost!";
+                score();
                 return 'computer'
             case 'scissors':
+                playerScore += 1;
                 document.getElementById("result").innerHTML = "You won!";
+                score();
                 return 'player'
         }
     }
     else if (playerSelection === 'paper') {
         switch(computerSelection) {
             case 'rock':
+                playerScore += 1;
                 document.getElementById("result").innerHTML = "You won!";
+                score();
                 return 'player'
             case 'paper':
                 document.getElementById("result").innerHTML = "It's a tie!";
                 return 0
             case 'scissors':
+                computerScore += 1;
                 document.getElementById("result").innerHTML = "You lost!";
+                score();
                 return 'computer'
         }
     }
     else if (playerSelection === 'scissors') {
         switch(computerSelection) {
             case 'rock':
+                computerScore += 1;
                 document.getElementById("result").innerHTML = "You lost!";
+                score();
                 return 'computer'
             case 'paper':
+                playerScore += 1;
                 document.getElementById("result").innerHTML = "You won!";
+                score();
                 return 'player'
             case 'scissors':
                 document.getElementById("result").innerHTML = "It's a tie!";
@@ -56,17 +68,6 @@ function rock () {
     playerSelection = "rock"
     
     let result = (playRound(playerSelection,computerSelection))
-
-    switch (result) {
-        case 'player':
-            playerScore += 1
-            break
-        case 'computer':
-            computerScore += 1
-            break
-        default:
-            break
-    }
 }
 
 function paper () {
@@ -76,17 +77,6 @@ function paper () {
     playerSelection = "paper"
     
     let result = (playRound(playerSelection,computerSelection))
-
-    switch (result) {
-        case 'player':
-            playerScore += 1
-            break
-        case 'computer':
-            computerScore += 1
-            break
-        default:
-            break
-    }
 }
 
 function scissors () {
@@ -96,24 +86,12 @@ function scissors () {
     playerSelection = "scissors"
     
     let result = (playRound(playerSelection,computerSelection))
-
-    switch (result) {
-        case 'player':
-            playerScore += 1
-            break
-        case 'computer':
-            computerScore += 1
-            break
-        default:
-            break
-    }
 }
 
-document.getElementById("updateScore").onmouseup = function(event) {score(event)};
-
-function score(e) {
+function score() {
     document.getElementById("playerScore").innerHTML = playerScore;
     document.getElementById("computerScore").innerHTML = computerScore;
+
     if (playerScore === 5) {
         alert("You win!");
         location.reload();
@@ -122,4 +100,3 @@ function score(e) {
         location.reload();
     } 
 }
-
